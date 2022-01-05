@@ -10,5 +10,8 @@ namespace CustomeRenderPipline
         public GrassRendererSetting grassRenderSetting;
         public int worldSize = 1024;
         public int gridSize = 128;
+
+        [HideInInspector] public float gridExtend = 64;
+        [HideInInspector] public int gridCount = 1024 / 128;
     }
 }

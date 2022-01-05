@@ -72,6 +72,8 @@
     <Compile Include="Assets\Scripts\InstanceOctreeMgr.cs" />
     <Compile Include="Assets\Scripts\InstanceOctreeNode.cs" />
     <Compile Include="Assets\Scripts\InstanceOctreeSetting.cs" />
+    <Compile Include="Assets\Scripts\QuadTreeMgr.cs" />
+    <Compile Include="Assets\Scripts\QuadTreeNode.cs" />
     <Compile Include="Assets\Scripts\RenderPiplineMainCamera.cs" />
     <Compile Include="Assets\Scripts\WorldRenderMgr.cs" />
     <Compile Include="Assets\Scripts\WorldRenderSetting.cs" />

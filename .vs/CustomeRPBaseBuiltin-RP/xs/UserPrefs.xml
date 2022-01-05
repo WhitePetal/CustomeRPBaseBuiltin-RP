@@ -1,11 +1,14 @@
 ﻿<Properties StartupConfiguration="{2C71090A-82B8-EF48-1E94-06C09ABC60AA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WorldRenderSetting.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InstanceOctreeMgr.cs">
     <Files>
       <File FileName="Assets/Scripts/GrassRenderer.cs" Line="45" Column="98" />
-      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="11" Column="38" />
-      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="18" Column="1" />
-      <File FileName="Assets/Scripts/WorldRenderSetting.cs" Line="7" Column="55" />
-      <File FileName="Assets/Scripts/GrassRendererSetting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="89" Column="64" />
+      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="30" Column="70" />
+      <File FileName="Assets/Scripts/WorldRenderSetting.cs" Line="14" Column="25" />
+      <File FileName="Assets/Scripts/GrassRendererSetting.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/QuadTreeMgr.cs" Line="11" Column="27" />
+      <File FileName="Assets/Scripts/QuadTreeNode.cs" Line="13" Column="33" />
+      <File FileName="Assets/Scripts/InstanceOctreeMgr.cs" Line="22" Column="55" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,7 +16,7 @@
           <Node name="CustomeRPBaseBuiltin-RP" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="WorldRenderSetting.cs" selected="True" />
+                <Node name="InstanceOctreeMgr.cs" selected="True" />
               </Node>
             </Node>
           </Node>
