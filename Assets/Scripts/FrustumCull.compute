@@ -1,0 +1,48 @@
+﻿#pragma kernel ViewPortCulling
+
+// IN
+uint instanceCount;
+uint grassLine;
+StructuredBuffer<float4x4> localToWorldMatrixs;
+StructuredBuffer<float4> boundBoxs;
+float4 cornerPlanes[6];
+
+// OUT
+AppendStructuredBuffer<float4x4> cullresult;
+
+[numthreads(512,1,1)]
+void ViewPortCulling (uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= instanceCount)
+        return;
+    float4x4 m = localToWorldMatrixs[id.x];
+
+    float4 boxInfo = boundBoxs[id.x];
+    float3 boundVerts[8];//AABB8个顶点坐标
+    boundVerts[0] = boxInfo.xyz + float3(boxInfo.w, boxInfo.w, boxInfo.w);
+    boundVerts[1] = boxInfo.xyz - float3(boxInfo.w, boxInfo.w, boxInfo.w);
+    boundVerts[2] = boxInfo.xyz + float3(boxInfo.w, boxInfo.w, -boxInfo.w);
+    boundVerts[3] = boxInfo.xyz + float3(boxInfo.w, -boxInfo.w, -boxInfo.w);
+    boundVerts[4] = boxInfo.xyz + float3(-boxInfo.w, boxInfo.w, -boxInfo.w);
+    boundVerts[5] = boxInfo.xyz + float3(-boxInfo.w, -boxInfo.w, boxInfo.w);
+    boundVerts[6] = boxInfo.xyz + float3(-boxInfo.w, boxInfo.w, -boxInfo.w);
+    boundVerts[7] = boxInfo.xyz + float3(boxInfo.w, -boxInfo.w, boxInfo.w);
+
+    //如果8个顶点都在某个面外，则肯定在视锥体外面
+    [unroll(6)]
+    for (int i = 0; i < 6; i++)
+    {
+        if(dot(cornerPlanes[i].xyz, boxInfo.xyz) + cornerPlanes[i].w + boxInfo.w < 0.0) return;
+        [unroll(8)]
+        for (int j = 0; j < 8; j++)
+        {
+            float3 boundPosition = boundVerts[j];
+
+            if(!(dot(cornerPlanes[i].xyz, boundPosition) + cornerPlanes[i].w < 0.0))
+                break;
+            if (j == 7)
+                return;
+        }
+    }
+    cullresult.Append(m);
+}
