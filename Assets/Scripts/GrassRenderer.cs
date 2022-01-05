@@ -42,7 +42,7 @@ namespace CustomeRenderPipline
                 {
                     Vector3 pos_world = new Vector3((x - grassLine / 2) * setting.gridSize, 0.0f, (y - grassLine / 2) * setting.gridSize);
                     localToWorldMatrixs[y * grassLine + x] = Matrix4x4.TRS(pos_world,
-                        Quaternion.Euler(0.0f, -90f * Mathf.PerlinNoise(x, y) * 360f, 90f),
+                        Quaternion.Euler(0.0f, Mathf.PerlinNoise(pos_world.x + x, pos_world.y + y) * 360f, 90f),
                         new Vector3(100f, 100f, 100f));
 
                     boundBoxs[y * grassLine + x] = new Vector4(pos_world.x, pos_world.y, pos_world.z, setting.gridSize * 0.5f);

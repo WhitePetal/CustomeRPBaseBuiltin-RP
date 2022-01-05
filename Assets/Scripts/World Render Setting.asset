@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44e90acb39292489e95d082c2fc60177, type: 3}
+  m_Name: World Render Setting
+  m_EditorClassIdentifier: 
+  grassRenderSetting: {fileID: 11400000, guid: c0ed4f95c8dea414fa66c5c77c4c0bf1, type: 2}
+  worldSize: 1024
+  gridSize: 128

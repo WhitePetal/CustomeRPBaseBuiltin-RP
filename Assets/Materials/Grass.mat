@@ -76,7 +76,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _WindScale: 120
-    - _WindSpeed: 0.01
+    - _WindSpeed: 1
     - _WindSpeed2: 2.4
     - _ZWrite: 1
     m_Colors:

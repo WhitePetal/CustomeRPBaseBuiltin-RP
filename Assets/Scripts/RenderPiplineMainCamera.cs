@@ -11,8 +11,14 @@ namespace CustomeRenderPipline
     //[ImageEffectAllowedInSceneView]
     public class RenderPiplineMainCamera : MonoBehaviour
     {
+#if UNITY_EDITOR
+        [SerializeField] private bool drawGizmos = false;
+#endif
+
         [SerializeField]
-        private GrassRendererSetting grassRendererSetting;
+        private WorldRenderSetting worldRenderSetting;
+        private WorldRenderMgr worldRenderMgr;
+
         private GrassRenderer grassRenderer;
 
         [SerializeField]
@@ -39,6 +45,7 @@ namespace CustomeRenderPipline
         private void Start()
         {
             cornerPlanes = new Vector4[6];
+            worldRenderMgr = new WorldRenderMgr();
             grassRenderer = new GrassRenderer();
 
             cmd_beforeRender = new CommandBuffer();
@@ -48,9 +55,9 @@ namespace CustomeRenderPipline
             cam.AddCommandBuffer(CameraEvent.BeforeForwardOpaque, cmd_beforeRender);
             cam.AddCommandBuffer(CameraEvent.AfterForwardOpaque, cmd_afterOpaque);
             cam.AddCommandBuffer(CameraEvent.AfterEverything, cmd_afterRender);
-            
 
-            grassRenderer.SetUp(grassRendererSetting, frustumCullCS, cmd_beforeRender, cmd_afterOpaque);
+            worldRenderMgr.Setup(worldRenderSetting, cam);
+            grassRenderer.SetUp(worldRenderSetting.grassRenderSetting, frustumCullCS, cmd_beforeRender, cmd_afterOpaque);
 
 
             colorBuffer = RenderTexture.GetTemporary(cam.pixelWidth, cam.pixelHeight, 0, RenderTextureFormat.Default);
@@ -69,14 +76,20 @@ namespace CustomeRenderPipline
             //instanceOctreeMgr.Setup(cam, instanceOctreeSetting);
         }
 
-        //private void OnDrawGizmos()
-        //{
-        //    if(instanceOctreeMgr != null)
-        //    {
-        //        instanceOctreeMgr.UpdateCamera();
-        //        instanceOctreeMgr.DrawGizmos();
-        //    }
-        //}
+        private void OnDrawGizmos()
+        {
+            //if (instanceOctreeMgr != null)
+            //{
+            //    instanceOctreeMgr.UpdateCamera();
+            //    instanceOctreeMgr.DrawGizmos();
+            //}
+#if UNITY_EDITOR
+            if (drawGizmos)
+            {
+                if(worldRenderMgr != null) worldRenderMgr.DrawGizmos();
+            }
+#endif
+        }
 
         private void OnPreCull()
         {
