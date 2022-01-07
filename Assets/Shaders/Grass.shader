@@ -10,8 +10,6 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-
         Pass
         {
             Tags {"LightMode"="BPreDepthPass"}
@@ -58,7 +56,7 @@
                 float3 pos_world = mul(grassPosBuffer[instanceID],  float4(v.vertex.xyz, 1.0)).xyz;
                 float2 scorllUV = pos_world.xz / 100.0 + _Time.x * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindSpeed);
                 half4 windNoise = tex2Dlod(_WindNoiseTex, float4(scorllUV, 0.0, 0.0));
-                float2 vertNoise = (windNoise.rg * 2.0 - 1.0) * windNoise.b * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindScale) * v.vertex.x;
+                float2 vertNoise = (windNoise.rg * 2.0 - 1.0) * windNoise.b * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindScale) * v.vertex.x * v.vertex.x;
                 pos_world.xz += vertNoise;
                 o.vertex = UnityWorldToClipPos(pos_world.xyz);
                 o.uv = v.uv * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _MainTex_ST).xy + UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _MainTex_ST).zw;
@@ -129,7 +127,7 @@
                 float3 pos_world = mul(grassPosBuffer[instanceID],  float4(v.vertex.xyz, 1.0)).xyz;
                 float2 scorllUV = pos_world.xz / 100.0 + _Time.x * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindSpeed);
                 half4 windNoise = tex2Dlod(_WindNoiseTex, float4(scorllUV, 0.0, 0.0));
-                float2 vertNoise = (windNoise.rg * 2.0 - 1.0) * windNoise.b * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindScale) * v.vertex.x;
+                float2 vertNoise = (windNoise.rg * 2.0 - 1.0) * windNoise.b * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindScale) * v.vertex.x * v.vertex.x;
                 pos_world.xz += vertNoise;
                 o.vertex = UnityWorldToClipPos(pos_world.xyz);
                 o.uv = v.uv * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _MainTex_ST).xy + UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _MainTex_ST).zw;

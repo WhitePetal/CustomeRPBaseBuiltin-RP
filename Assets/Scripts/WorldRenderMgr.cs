@@ -23,31 +23,51 @@ namespace CustomeRenderPipline
         private Camera cam;
         public WorldRenderSetting setting;
 
-        public WorldGridData[] worldGridDatas;
-        public int worldGridDataArrEndIndex;
+        private QuadTreeMgr quadTree;
+        private GrassRenderer grassRenderer;
+        private CloudFogRenderer cloudFogRenderer;
 
-        public void Setup(WorldRenderSetting setting, Camera cam)
+
+        public WorldGridData[] worldGridDatas;
+        public int worldGridDataArrCount;
+        public int worldCullResultCount;
+
+        public void Setup(WorldRenderSetting setting, RenderPiplineMainCamera rp)
         {
             this.setting = setting;
-            this.cam = cam;
+            this.cam = rp.cam;
+
             setting.gridExtend = setting.gridSize * 0.5f;
             setting.gridCount = setting.worldSize / setting.gridSize;
+
+            worldGridDatas = new WorldGridData[(setting.worldSize / setting.gridSize) * (setting.worldSize / setting.gridSize)];
+
+            quadTree = new QuadTreeMgr();
+            quadTree.Setup(this);
+
+            grassRenderer = new GrassRenderer();
+            grassRenderer.SetUp(cam, setting.grassRenderSetting, setting.frustumCullCS);
+
+            cloudFogRenderer = new CloudFogRenderer();
+            cloudFogRenderer.Setup(rp, setting.cloudFogRenderSetting);
+        }
+
+        public void Render(Vector4[] cornerPlanes, Matrix4x4 cameraRays)
+        {
+            grassRenderer.Render(cornerPlanes);
+            cloudFogRenderer.Render(cameraRays);
+        }
+
+        public void Destory()
+        {
+            grassRenderer.Destory();
+            cloudFogRenderer.Destory();
         }
 
         public void DrawGizmos()
         {
-            float y = -setting.worldSize * 0.5f + setting.gridExtend;
-            //Gizmos.color = Color.black;
-            while(y < setting.worldSize * 0.5f)
-            {
-                float x = -setting.worldSize * 0.5f + setting.gridExtend;
-                while (x < setting.worldSize * 0.5f)
-                {
-                    Gizmos.DrawWireCube(new Vector3(x, 0, y), new Vector3(setting.gridSize, 1.0f, setting.gridSize));
-                    x += setting.gridExtend;
-                }
-                y += setting.gridExtend;
-            }
+            if (!setting.drawGizmos) return;
+            quadTree.DrawGizmos();
         }
     }
 }

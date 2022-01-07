@@ -1,32 +1,31 @@
 ﻿<Properties StartupConfiguration="{2C71090A-82B8-EF48-1E94-06C09ABC60AA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/InstanceOctreeMgr.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="../amongus3d_cn/Assets/Scripts/Game/Managers/NetworkManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/GrassRenderer.cs" Line="45" Column="98" />
-      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="89" Column="64" />
-      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="30" Column="70" />
-      <File FileName="Assets/Scripts/WorldRenderSetting.cs" Line="14" Column="25" />
-      <File FileName="Assets/Scripts/GrassRendererSetting.cs" Line="7" Column="5" />
-      <File FileName="Assets/Scripts/QuadTreeMgr.cs" Line="11" Column="27" />
-      <File FileName="Assets/Scripts/QuadTreeNode.cs" Line="13" Column="33" />
-      <File FileName="Assets/Scripts/InstanceOctreeMgr.cs" Line="22" Column="55" />
+      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CloudFogRenderer.cs" />
+      <File FileName="Assets/Scripts/CloudFogRenderSetting.cs" />
+      <File FileName="Assets/Scripts/QuadTreeNode.cs" />
+      <File FileName="Assets/Scripts/GrassRenderer.cs" />
+      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" />
+      <File FileName="Assets/Scripts/WorldRenderSetting.cs" />
+      <File FileName="Assets/Scripts/GrassRendererSetting.cs" />
+      <File FileName="Assets/Scripts/QuadTreeMgr.cs" />
+      <File FileName="Assets/Scripts/CullTools.cs" />
+      <File FileName="Assets/Scripts/InstanceOctreeMgr.cs" />
+      <File FileName="Assets/Editor/NoiseGenerator/NoiseGeneratorEditor.cs" />
+      <File FileName="../amongus3d_cn/Assets/Scripts/Game/Managers/NetworkManager.cs" Line="89" Column="29" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CustomeRPBaseBuiltin-RP" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="InstanceOctreeMgr.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CustomeRPBaseBuiltin-RP" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="454dae0f-c597-4eed-96b4-29fe86d69ca5" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c261011d-883b-48e5-a9a8-a8af19a7f1fc" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -7,9 +7,16 @@ namespace CustomeRenderPipline
     [CreateAssetMenu(menuName = "Rendering/WorldRenderSetting")]
     public class WorldRenderSetting : ScriptableObject
     {
-        public GrassRendererSetting grassRenderSetting;
+        public bool drawGizmos = false;
+
         public int worldSize = 1024;
         public int gridSize = 128;
+        public int worldHeight = 512;
+
+        public ComputeShader frustumCullCS;
+
+        public GrassRendererSetting grassRenderSetting;
+        public CloudFogRenderSetting cloudFogRenderSetting;
 
         [HideInInspector] public float gridExtend = 64;
         [HideInInspector] public int gridCount = 1024 / 128;

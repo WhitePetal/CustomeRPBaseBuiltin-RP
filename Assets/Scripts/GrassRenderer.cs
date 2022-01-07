@@ -25,11 +25,16 @@ namespace CustomeRenderPipline
         private ComputeBuffer boundBoxsBuffer;
         private ComputeBuffer cullResultBuffer;
 
-        public void SetUp(GrassRendererSetting setting, ComputeShader frustumCullCS, CommandBuffer cmd_beforeRender, CommandBuffer cmd_afterOpaque)
+        public void SetUp(Camera cam, GrassRendererSetting setting, ComputeShader frustumCullCS)
         {
             this.setting = setting;
-            this.cmd_beforeRender = cmd_beforeRender;
-            this.cmd_afterOpaque = cmd_afterOpaque;
+            this.cmd_beforeRender = new CommandBuffer();
+            cmd_beforeRender.name = "GrassRender_BeforeRender";
+            this.cmd_afterOpaque = new CommandBuffer();
+            cmd_afterOpaque.name = "GrassRender_AfterOpaque";
+            cam.AddCommandBuffer(CameraEvent.BeforeForwardOpaque, cmd_beforeRender);
+            cam.AddCommandBuffer(CameraEvent.AfterForwardOpaque, cmd_afterOpaque);
+
             this.frustumCullCS = frustumCullCS;
 
             grassLine = (int)(setting.worldSize / setting.gridSize);
@@ -43,7 +48,7 @@ namespace CustomeRenderPipline
                     Vector3 pos_world = new Vector3((x - grassLine / 2) * setting.gridSize, 0.0f, (y - grassLine / 2) * setting.gridSize);
                     localToWorldMatrixs[y * grassLine + x] = Matrix4x4.TRS(pos_world,
                         Quaternion.Euler(0.0f, Mathf.PerlinNoise(pos_world.x + x, pos_world.y + y) * 360f, 90f),
-                        new Vector3(100f, 100f, 100f));
+                        new Vector3(50f, 100f, 100f));
 
                     boundBoxs[y * grassLine + x] = new Vector4(pos_world.x, pos_world.y, pos_world.z, setting.gridSize * 0.5f);
                 }
@@ -58,47 +63,45 @@ namespace CustomeRenderPipline
             cullResultBuffer = new ComputeBuffer(instanceCount, sizeof(float) * 16, ComputeBufferType.Append);
             argsBuffer = new ComputeBuffer(1, args.Length * sizeof(uint), ComputeBufferType.IndirectArguments);
             args[0] = (uint)setting.grassMesh.GetIndexCount(0);
+            if (!setting.frustumCullEnable) args[1] = (uint)instanceCount;
             args[2] = (uint)setting.grassMesh.GetIndexStart(0);
             args[3] = (uint)setting.grassMesh.GetBaseVertex(0);
             argsBuffer.SetData(args);
         }
 
-        public void UpdatePreRender(Vector4[] cornerPlanes)
+        public void Render(Vector4[] cornerPlanes)
         {
-            cullResultBuffer.Release();
-            //cullResultBuffer.SetCounterValue(0);
-            cullResultBuffer = new ComputeBuffer(instanceCount, sizeof(float) * 16, ComputeBufferType.Append);
+            if (setting.frustumCullEnable)
+            {
+                cullResultBuffer.Release();
+                //cullResultBuffer.SetCounterValue(0);
+                cullResultBuffer = new ComputeBuffer(instanceCount, sizeof(float) * 16, ComputeBufferType.Append);
 
 
-            cmd_beforeRender.Clear();
-            cmd_beforeRender.SetComputeIntParam(frustumCullCS, "instanceCount", instanceCount);
-            cmd_beforeRender.SetComputeIntParam(frustumCullCS, "grassLine", grassLine);
-            cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "localToWorldMatrixs", localToWorldMatrixsBuffer);
-            cmd_beforeRender.SetComputeVectorArrayParam(frustumCullCS, "cornerPlanes", cornerPlanes);
-            cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "boundBoxs", boundBoxsBuffer);
-            cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "cullresult", cullResultBuffer);
-            cmd_beforeRender.DispatchCompute(frustumCullCS, 0, 1 + instanceCount / 512, 1, 1);
-            cmd_beforeRender.CopyCounterValue(cullResultBuffer, argsBuffer, sizeof(uint));
-            cmd_beforeRender.SetGlobalBuffer("grassPosBuffer", cullResultBuffer);
-            cmd_beforeRender.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 0, argsBuffer);
+                cmd_beforeRender.Clear();
+                cmd_beforeRender.SetComputeIntParam(frustumCullCS, "instanceCount", instanceCount);
+                cmd_beforeRender.SetComputeIntParam(frustumCullCS, "grassLine", grassLine);
+                cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "localToWorldMatrixs", localToWorldMatrixsBuffer);
+                cmd_beforeRender.SetComputeVectorArrayParam(frustumCullCS, "cornerPlanes", cornerPlanes);
+                cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "boundBoxs", boundBoxsBuffer);
+                cmd_beforeRender.SetComputeBufferParam(frustumCullCS, 0, "cullresult", cullResultBuffer);
+                cmd_beforeRender.DispatchCompute(frustumCullCS, 0, 1 + instanceCount / 512, 1, 1);
+                cmd_beforeRender.CopyCounterValue(cullResultBuffer, argsBuffer, sizeof(uint));
+                cmd_beforeRender.SetGlobalBuffer("grassPosBuffer", cullResultBuffer);
+                cmd_beforeRender.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 0, argsBuffer);
 
-            cmd_afterOpaque.Clear();
-            cmd_afterOpaque.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 1, argsBuffer);
+                cmd_afterOpaque.Clear();
+                cmd_afterOpaque.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 1, argsBuffer);
+            }
+            else
+            {
+                cmd_beforeRender.Clear();
+                cmd_beforeRender.SetGlobalBuffer("grassPosBuffer", localToWorldMatrixsBuffer);
+                cmd_beforeRender.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 0, argsBuffer);
+                cmd_afterOpaque.Clear();
+                cmd_afterOpaque.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 1, argsBuffer);
+            }
         }
-
-        //public void SetRenderDepthCmd()
-        //{
-        //    if ((setting == null && setting.canRender) || cmd_beforeRender == null) return;
-        //    cmd_beforeRender.Clear();
-        //    cmd_beforeRender.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 0, argsBuffer);
-        //}
-
-        //public void SetRenderGrassCmd()
-        //{
-        //    if ((setting == null && setting.canRender) || cmd_beforeRender == null) return;
-        //    cmd_afterOpaque.Clear();
-        //    cmd_afterOpaque.DrawMeshInstancedIndirect(setting.grassMesh, 0, setting.grassMat, 1, argsBuffer);
-        //}
 
         public void Destory()
         {

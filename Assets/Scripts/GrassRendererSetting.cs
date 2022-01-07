@@ -7,6 +7,7 @@ namespace CustomeRenderPipline
     [CreateAssetMenu(menuName = "Rendering/GrassRenderSetting")]
     public class GrassRendererSetting : ScriptableObject
     {
+        public bool frustumCullEnable = true;
         public Mesh grassMesh;
         public Material grassMat;
         

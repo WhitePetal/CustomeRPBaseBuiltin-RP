@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e29144392d0e43008db6acd878428c6, type: 3}
   m_Name: Grass Renderer Setting
   m_EditorClassIdentifier: 
+  frustumCullEnable: 0
   grassMesh: {fileID: 9127120572191758296, guid: a0ebc3b0c66224135b37567ed43311ee,
     type: 3}
   grassMat: {fileID: 2100000, guid: 184183dc0e12a4ba3a215a4afe18c47a, type: 2}

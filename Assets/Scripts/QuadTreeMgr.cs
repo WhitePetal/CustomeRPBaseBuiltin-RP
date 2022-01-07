@@ -10,7 +10,13 @@ namespace CustomeRenderPipline
 
         public void Setup(WorldRenderMgr worldRenderMgr)
         {
-            tree.Setup(Vector2.zero, worldRenderMgr.setting.gridExtend, worldRenderMgr);
+            tree = new QuadTreeNode();
+            tree.Setup(Vector2.zero, worldRenderMgr.setting.worldSize * 0.5f, worldRenderMgr);
+        }
+
+        public void DrawGizmos()
+        {
+            tree.DrawGizmos();
         }
     }
 }

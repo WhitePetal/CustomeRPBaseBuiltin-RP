@@ -23,12 +23,12 @@ namespace CustomeRenderPipline
             octree.Setup(setting.minGridSize);
 
             cornePlanes = new Vector4[6];
-            CullTools.GetCameraConnerPlaneWorldSpace(cam, cornePlanes);
+            //CullTools.GetCameraConnerPlaneWorldSpace(cam, cornePlanes);
         }
 
         public void UpdateCamera()
         {
-            CullTools.GetCameraConnerPlaneWorldSpace(cam, cornePlanes);
+            //CullTools.GetCameraConnerPlaneWorldSpace(cam, cornePlanes);
         }
 
         public void Culling(List<InstanceOctreeNode> result)

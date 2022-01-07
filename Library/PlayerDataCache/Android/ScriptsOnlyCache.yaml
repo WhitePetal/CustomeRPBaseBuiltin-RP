@@ -1,8 +1,10 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - CustomeRenderPipline.CloudFogRenderSetting
     - CustomeRenderPipline.GrassRendererSetting
     - CustomeRenderPipline.RenderPiplineMainCamera
+    - CustomeRenderPipline.WorldRenderSetting
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -39,14 +41,16 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 10036}
+      Script: {instanceID: 10040}
     - Class: 114
-      Script: {instanceID: 10260}
+      Script: {instanceID: 10140}
     - Class: 114
-      Script: {instanceID: 12342}
+      Script: {instanceID: 10266}
+    - Class: 114
+      Script: {instanceID: 10958}
     - Class: 115
       Script: {instanceID: 0}
-    - Class: 135
+    - Class: 117
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -179,7 +183,7 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 658442b19cceb6d52c21775582894036
+      Hash: fd5a6c1d28d34e5d0e9338080b5fba70
     assemblyName: Assembly-CSharp.dll
     namespaceName: CustomeRenderPipline
     className: GrassRendererSetting
@@ -209,6 +213,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: ff23a30ff294596b5118d7c6a19aad39
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CustomeRenderPipline
+    className: CloudFogRenderSetting
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -233,7 +243,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: c2f3f3c11c3a1ab50b1e1f26bc91d704
+      Hash: 3f0c87f4339b9772979184a07a9f1d85
     assemblyName: Assembly-CSharp.dll
     namespaceName: CustomeRenderPipline
     className: RenderPiplineMainCamera
@@ -357,6 +367,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 39bebdfe1e0f9212fc0d4add8fa3bc2a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: CustomeRenderPipline
+    className: WorldRenderSetting
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a
