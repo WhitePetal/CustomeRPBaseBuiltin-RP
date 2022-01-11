@@ -149,7 +149,7 @@
                 half ndotl_local = saturate(dot(lightDir, normalize(i.normal_world))) + 1.0;
                 half ndotl_gloabl = lightDir.y;
 
-                col.rgb *= ndotl_local * ndotl_gloabl * (tex2D(_WindNoiseTex, i.pos_world.xz / 100.0 + _Time.x * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindSpeed2)).a + 1.0);
+                col.rgb *= lightColor * ndotl_local * ndotl_gloabl * (tex2D(_WindNoiseTex, i.pos_world.xz / 100.0 + _Time.x * UNITY_ACCESS_INSTANCED_PROP(UnityPerMaterial, _WindSpeed2)).a + 1.0);
                 col.rgb = ToneMapping_ACES(col.rgb, 1.2);
 
                 return col;

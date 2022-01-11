@@ -1,4 +1,0 @@
-#Fri Jan 07 19:54:14 CST 2022
-base.0=/Users/baiaoxiang/CustomeRPBaseBuiltin-RP/Temp/gradleOut/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex

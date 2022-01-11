@@ -12,7 +12,8 @@ namespace CustomeRenderPipline
         private Camera cam;
         private CommandBuffer cmd_render;
         private int postSourceId = Shader.PropertyToID("_PostSource");
-        private int cloudFogRenderTempRT = Shader.PropertyToID("_CloudFogRenderTempRT");
+        private int fogRenderRT = Shader.PropertyToID("_FogRenderTempRT");
+        private int cloudRenderRT = Shader.PropertyToID("_CloudRenderTempRT");
 
         public void Setup(RenderPiplineMainCamera rp, CloudFogRenderSetting setting)
         {
@@ -31,18 +32,22 @@ namespace CustomeRenderPipline
             setting.cloudFogMaterial.SetVector("_CloudBoundMax", setting.cloudBoxCenter + setting.cloudBoxSize * 0.5f);
             setting.cloudFogMaterial.SetVector("_CloudBoundMin", setting.cloudBoxCenter - setting.cloudBoxSize * 0.5f);
             cmd_render.Clear();
-            cmd_render.GetTemporaryRT(cloudFogRenderTempRT, cam.pixelWidth >> 1, cam.pixelHeight >> 1, 0);
+            cmd_render.GetTemporaryRT(fogRenderRT, cam.pixelWidth, cam.pixelHeight, 0);
+            cmd_render.GetTemporaryRT(cloudRenderRT, cam.pixelWidth >> 1, cam.pixelHeight >> 1, 0);
             //// DrawProcedural 不适合传入 RayMatrix 的方式
             //cmd_render.SetRenderTarget(cloudFogRenderTempRT, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
             //cmd_render.SetGlobalTexture(postSourceId, rp.colorBuffer);
             //cmd_render.DrawProcedural(Matrix4x4.identity, setting. cloudFogMaterial, 0, MeshTopology.Quads, 4);
-            cmd_render.Blit(rp.colorBuffer, cloudFogRenderTempRT, setting.cloudFogMaterial, 0);
+            cmd_render.Blit(rp.colorBuffer, fogRenderRT, setting.cloudFogMaterial, 0);
+            cmd_render.Blit(fogRenderRT, rp.colorBuffer, setting.cloudFogMaterial, 3);
+            cmd_render.Blit(rp.colorBuffer, cloudRenderRT, setting.cloudFogMaterial, 1);
 
             //cmd_render.SetRenderTarget(rp.colorBuffer, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store, rp.depthBuffer, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
             //cmd_render.SetGlobalTexture(postSourceId, cloudFogRenderTempRT);
             //cmd_render.DrawProcedural(Matrix4x4.identity, setting.cloudFogMaterial, 1, MeshTopology.Quads, 4);
-            cmd_render.Blit(cloudFogRenderTempRT, rp.colorBuffer, setting.cloudFogMaterial, 1);
-            cmd_render.ReleaseTemporaryRT(cloudFogRenderTempRT);
+            cmd_render.Blit(cloudRenderRT, rp.colorBuffer, setting.cloudFogMaterial, 2);
+            cmd_render.ReleaseTemporaryRT(fogRenderRT);
+            cmd_render.ReleaseTemporaryRT(cloudRenderRT);
         }
 
         public void Destory()
