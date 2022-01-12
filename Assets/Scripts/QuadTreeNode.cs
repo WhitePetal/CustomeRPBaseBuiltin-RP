@@ -14,6 +14,8 @@ namespace CustomeRenderPipline
         private bool isFinal = false;
         private Vector2[] verts;
 
+        public Matrix4x4[] grassLocalToWorldMatrixs;
+
         public void Setup(Vector2 center, float extend, WorldRenderMgr worldRenderMgr)
         {
             this.worldRender = worldRenderMgr;

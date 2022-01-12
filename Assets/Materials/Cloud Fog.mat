@@ -73,7 +73,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CloudColorOffset0: 0.89
+    - _CloudColorOffset1: 1.15
     - _Cutoff: 0.5
+    - _DarknessThreshold: 0.362
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _FogDepthOffset: 0
@@ -90,7 +93,9 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CloudColor: {r: 1, g: 0.9662839, b: 0.8632076, a: 1}
+    - _CloudColor0: {r: 0.43467426, g: 0.6243997, b: 0.8301887, a: 1}
+    - _CloudColor1: {r: 0.0495283, g: 0.13496463, b: 0.1981132, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FogColor: {r: 0.63897294, g: 0.7830189, b: 0.72833663, a: 1}
