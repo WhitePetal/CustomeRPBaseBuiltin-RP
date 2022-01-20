@@ -65,6 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\NoiseGenerator\NoiseGeneratorEditor.cs" />
+    <Compile Include="Assets\Editor\VectorRangeDrawer.cs" />
+    <Compile Include="Assets\T4M\Editor\T4MExtendsSC.cs" />
+    <Compile Include="Assets\T4M\Editor\T4MSC.cs" />
     <None Include="Assets\Editor\NoiseGenerator\SimplexNoise.compute" />
     <None Include="Assets\Editor\NoiseGenerator\PerlinNoise3D.compute" />
     <None Include="Assets\Editor\NoiseGenerator\PerlinNoise.compute" />
