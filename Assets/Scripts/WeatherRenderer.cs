@@ -37,7 +37,7 @@ namespace CustomeRenderPipline
             RenderSettings.skybox = setting.skyBoxMat;
         }
 
-        private float ExecuteLightIntensity(float hourTime)
+        private float ExecuteLightIntensityFactor(float hourTime)
         {
             float factor = 0.0f;
             if (hourTime >= 12.0f && hourTime < 20.0f)
@@ -49,7 +49,17 @@ namespace CustomeRenderPipline
                 factor = (hourTime - 36.0f) / -16.0f;
             }
             else factor = (hourTime - 12.0f) / -8.0f;
+            return factor;
+        }
+        private float ExecuteLightIntensity(float factor)
+        {
+
             return Mathf.Lerp(setting.maxLightIntensity, setting.minLightIntensity, factor);
+        }
+        private Color ExecuteFogColor(float factor)
+        {
+
+            return Color.Lerp(setting.fog_sun, setting.fog_night, factor);
         }
 
         private Quaternion ExecuteLightRotation(float hourTime)
@@ -106,9 +116,10 @@ namespace CustomeRenderPipline
         {
             // Hour Time Execute
             float hourTime = setting.hourTime;
+            float sunIntensityFactor = ExecuteLightIntensityFactor(hourTime);
             //setting.hourTime += setting.hourSpeed * Time.deltaTime;
             //if (setting.hourTime > 24.0f) setting.hourTime = 0.0f;
-            sun.intensity = ExecuteLightIntensity(hourTime);
+            sun.intensity = ExecuteLightIntensity(sunIntensityFactor);
             sun.transform.localRotation = ExecuteLightRotation(hourTime);
             if(sun.transform.forward.y > 0.0f)
             {
@@ -119,6 +130,7 @@ namespace CustomeRenderPipline
             {
                 setting.skyBoxMat.SetFloat(lightFlagId, 1f);
             }
+            Shader.SetGlobalColor("_FogColor", ExecuteFogColor(sunIntensityFactor));
             float time_c = Mathf.Abs(hourTime / 24.0f - 0.5f) * 2.0f;
             time_c = Mathf.Abs (time_c - 0.5f) * 2.0f;
             Color sunColor = Color.Lerp(setting.sunDayColor, setting.sunNightColor, time_c);

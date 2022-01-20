@@ -116,6 +116,7 @@
     <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 6 Textures.shader" />
     <None Include="Assets\Materials\RealTimeSkyBox.shader" />
+    <None Include="Assets\LocalResources\Common\Shaders\Skin\TransformLibrary.cginc" />
     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 4 Textures.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 4 Textures Spec.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 4 TexturesBumped.shader" />
@@ -157,6 +158,7 @@
     <None Include="Assets\T4M\Shaders\ShaderModel3\BumpSpec\T4M 3 TexturesBumpSpec.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\DirectionLM\T4M 2 TexturesBumped DLM mobile.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Diffuse\T4M 5 Textures.shader" />
+    <None Include="Assets\Shaders\Scene_Opaque_High.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\BumpSpec\T4M 2 TexturesBumpSpec.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/baiaoxiang/CustomeRPBaseBuiltin-RP/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

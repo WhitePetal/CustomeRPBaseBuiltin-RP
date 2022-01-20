@@ -60,7 +60,7 @@ namespace CustomeRenderPipline
         {
             weatherRenderer.Render();
             //grassRenderer.Render(cornerPlanes);
-            cloudFogRenderer.Render(cameraRays);
+            //cloudFogRenderer.Render(cameraRays);
         }
 
         public void Destory()

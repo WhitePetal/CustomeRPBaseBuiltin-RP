@@ -90,7 +90,7 @@ Material:
     m_Floats:
     - _AtmosphereThickness: 1
     - _BumpScale: 1
-    - _CloudDensity: 1.206
+    - _CloudDensity: 1.268
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -115,8 +115,8 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CloudColor: {r: 0.9794, g: 0.9794, b: 0.9794, a: 1}
-    - _CloudCutoff_Fuzziness_Speed_Size: {r: 0.81399703, g: 0.368755, b: 3.691, a: 0.04}
+    - _CloudColor: {r: 0.9732, g: 0.9732, b: 0.9732, a: 1}
+    - _CloudCutoff_Fuzziness_Speed_Size: {r: 0.80466604, g: 0.37139, b: 3.598, a: 0.04}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DayBottomColor: {r: 0.3329477, g: 0.8113208, b: 0.6410315, a: 1}
     - _DayTopColor: {r: 0.5896226, g: 1, b: 0.9713268, a: 1}
@@ -129,7 +129,7 @@ Material:
     - _PostProcessFactors: {r: 0, g: 0.2, b: 0, a: 0}
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _StarIntensity_StarSpeed: {r: 0, g: 0.4, b: 0, a: 0}
-    - _SunColor: {r: 0.98151803, g: 0.95815265, b: 0.0013856232, a: 1}
+    - _SunColor: {r: 1, g: 0.5262575, b: 0.015686274, a: 1}
     - _SunIntensity_MoonIntensity: {r: 1, g: 1, b: 0, a: 0}
     - _SunRadius_MoonRadius: {r: 0.15, g: 0.125, b: 0, a: 0}
     - _SunRadius_MoonRadius_MoonOffset: {r: 0.15, g: 0.1, b: 0, a: 0}

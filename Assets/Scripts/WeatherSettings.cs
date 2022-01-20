@@ -20,6 +20,10 @@ namespace CustomeRenderPipline
         [Range(0.0f, 1.0f)]
         public float rain = 0.0f;
 
+        [Header("雾设置")]
+        public Color fog_sun = Color.white;
+        public Color fog_night = Color.black;
+
         [Header("光源设置")]
         public Color sunDayColor = Color.red;
         public Color sunNightColor = Color.yellow;

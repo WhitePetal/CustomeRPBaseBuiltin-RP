@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyBoxMat: {fileID: 2100000, guid: da91c6c39483842cd8c50476863990ad, type: 2}
   hourSpeed: 1
-  hourTime: 18.53
+  hourTime: 0
   dayTime: 8.38
   monthTime: 3.3
-  rain: 0.103
+  rain: 0.134
+  fog_sun: {r: 0.34901962, g: 0.8352942, b: 0.68235296, a: 1}
+  fog_night: {r: 0.19215688, g: 0.21568629, b: 0.27450982, a: 1}
   sunDayColor: {r: 0.97972727, g: 1, b: 0, a: 1}
   sunNightColor: {r: 1, g: 0.5262575, b: 0.015686274, a: 1}
   maxLightIntensity: 1
