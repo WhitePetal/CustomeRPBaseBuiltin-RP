@@ -1,24 +1,22 @@
 ﻿<Properties StartupConfiguration="{2C71090A-82B8-EF48-1E94-06C09ABC60AA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WeatherSettings.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fantasy Adventure Environment/Editor/sc.fae.editor.asmdef">
     <Files>
-      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="62" Column="16" />
-      <File FileName="Assets/Scripts/WorldRenderMgr.cs" />
-      <File FileName="Assets/Scripts/WeatherSettings.cs" Line="10" Column="35" />
-      <File FileName="Assets/Scripts/WeatherRenderer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CloudFogRenderSetting.cs" />
-      <File FileName="Assets/Scripts/WorldRenderSetting.cs" />
-      <File FileName="Assets/Scripts/CloudFogRenderer.cs" />
+      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="34" Column="26" />
+      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="63" Column="33" />
+      <File FileName="Assets/Scripts/WeatherSettings.cs" Line="18" Column="39" />
+      <File FileName="Assets/Scripts/WeatherRenderer.cs" Line="142" Column="43" />
+      <File FileName="Assets/Scripts/CloudFogRenderSetting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WorldRenderSetting.cs" Line="7" Column="4" />
+      <File FileName="Assets/Scripts/CloudFogRenderer.cs" Line="31" Column="69" />
+      <File FileName="Assets/RainMaker/Prefab/RainScript.cs" Line="11" Column="28" />
+      <File FileName="Assets/Scripts/RainRenderer.cs" Line="6" Column="2" />
+      <File FileName="Assets/Scripts/RainSetting.cs" Line="7" Column="54" />
+      <File FileName="Assets/Fantasy Adventure Environment/Editor/sc.fae.editor.asmdef" Line="14" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="CustomeRPBaseBuiltin-RP" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="WeatherSettings.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="CustomeRPBaseBuiltin-RP" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

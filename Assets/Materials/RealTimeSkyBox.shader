@@ -25,6 +25,8 @@
         _CloudColor("云颜色", Color) = (1.0, 1.0, 1.0)
         [VectorRange(0.0, 1.0, 0.0, 1.0, 0.0, 8.0, 0.0, 1.0)]_CloudCutoff_Fuzziness_Speed_Size("云裁剪_云裁剪偏移_云速度_云大小", Vector) = (0.4, 0.2, 1.0, 0.04)
         _CloudDensity("云密度", Float) = 1.0
+
+        [HideInInspector]_LightFlag("LightFlag", FLoat) = 1.0
     }
     SubShader
     {
@@ -68,6 +70,8 @@
             half4 _CloudCutoff_Fuzziness_Speed_Size;
             half _CloudDensity;
 
+            half _LightFlag;
+
             half2 _PostProcessFactors;
 
             #include "Assets/LocalResources/Common/Shaders/Skin/ShaderUtil.cginc"
@@ -83,16 +87,18 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
+                half3 l = _WorldSpaceLightPos0;
+                l *= _LightFlag;
                 // 太阳
-                half sun = distance(i.uv.xyz, _WorldSpaceLightPos0);
+                half sun = distance(i.uv.xyz, l);
                 half sunDisc = step(0.2, 1.0 - saturate(sun / _SunRadius_MoonRadius.x));
                 half3 sunColor = sunDisc * _SunIntensity_MoonIntensity.x * _SunColor;
 
                 // 月亮
-                half moon = distance(i.uv.xyz, -_WorldSpaceLightPos0);
+                half moon = distance(i.uv.xyz, -l);
                 half moonDisc = step(0.2, 1.0 - saturate(moon / _SunRadius_MoonRadius.y));
                 // 扣出残月
-                half crescentMoon = distance(float3(i.uv.x + _MoonOffset, i.uv.yz), -_WorldSpaceLightPos0);
+                half crescentMoon = distance(float3(i.uv.x + _MoonOffset, i.uv.yz), -l);
                 half crescentMoonDisc = step(0.2, 1.0 - saturate(crescentMoon / _SunRadius_MoonRadius.y));
                 moonDisc = saturate(moonDisc - crescentMoonDisc);
                 half3 moonColor = moonDisc * _SunIntensity_MoonIntensity.y * _MoonColor;
@@ -100,7 +106,7 @@
                 // 背景颜色
                 half3 dayCol = lerp(_DayBottomColor, _DayTopColor, i.uv.y);
                 half3 nightCol = lerp(_NightBottomColor, _NightTopColor, i.uv.y);
-                half lightY = saturate(_WorldSpaceLightPos0.y);
+                half lightY = saturate(l.y);
                 half3 backCol = lerp(nightCol, dayCol, lightY);
 
                 // 地平线

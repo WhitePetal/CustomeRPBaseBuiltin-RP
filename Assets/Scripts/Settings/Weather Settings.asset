@@ -14,15 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skyBoxMat: {fileID: 2100000, guid: da91c6c39483842cd8c50476863990ad, type: 2}
   hourSpeed: 1
-  hourTime: 22.590275
-  dayTime: 18.06513
-  monthTime: 1
-  rain: 0
+  hourTime: 18.53
+  dayTime: 8.38
+  monthTime: 3.3
+  rain: 0.103
   sunDayColor: {r: 0.97972727, g: 1, b: 0, a: 1}
   sunNightColor: {r: 1, g: 0.5262575, b: 0.015686274, a: 1}
   maxLightIntensity: 1
   minLightIntensity: 0.2
   starIntensity: 4
-  starRandomScale: 4
-  starSpeed: 1
+  starRandomScale: 10
+  starSpeed: 0.4
+  cloudColor_rain: {r: 0.8, g: 0.8, b: 0.8, a: 1}
+  cloudCutout_rain: 0.544
+  cloudThiness_rain: 0.445
+  cloudSpeed_rain: 1
+  cloudDensity_rain: 3
+  cloudColor_sun: {r: 1, g: 1, b: 1, a: 1}
+  cloudCutout_sun: 0.845
+  cloudThiness_sun: 0.36
+  cloudSpeed_sun: 4
+  cloudDensity_sun: 1
+  cloudSize: 0.04
+  rainPrefab: {fileID: 160098, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
   newMoonOffset: 0.2

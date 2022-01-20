@@ -38,14 +38,13 @@ namespace CustomeRenderPipline
             //cmd_render.SetRenderTarget(cloudFogRenderTempRT, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
             //cmd_render.SetGlobalTexture(postSourceId, rp.colorBuffer);
             //cmd_render.DrawProcedural(Matrix4x4.identity, setting. cloudFogMaterial, 0, MeshTopology.Quads, 4);
-            cmd_render.Blit(rp.colorBuffer, fogRenderRT, setting.cloudFogMaterial, 0);
-            cmd_render.Blit(fogRenderRT, rp.colorBuffer, setting.cloudFogMaterial, 3);
-            cmd_render.Blit(rp.colorBuffer, cloudRenderRT, setting.cloudFogMaterial, 1);
+            cmd_render.Blit(rp.colorBuffer, cloudRenderRT, setting.cloudFogMaterial, 0);
 
             //cmd_render.SetRenderTarget(rp.colorBuffer, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store, rp.depthBuffer, RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store);
             //cmd_render.SetGlobalTexture(postSourceId, cloudFogRenderTempRT);
             //cmd_render.DrawProcedural(Matrix4x4.identity, setting.cloudFogMaterial, 1, MeshTopology.Quads, 4);
-            cmd_render.Blit(cloudRenderRT, rp.colorBuffer, setting.cloudFogMaterial, 2);
+            cmd_render.Blit(cloudRenderRT, rp.colorBuffer, setting.cloudFogMaterial, 1);
+
             cmd_render.ReleaseTemporaryRT(fogRenderRT);
             cmd_render.ReleaseTemporaryRT(cloudRenderRT);
         }

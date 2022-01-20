@@ -17,61 +17,6 @@
     }
     SubShader
     {
-        // Fog
-        Pass
-        {
-            ZWrite Off
-            ZTest Always
-            // Cull Back
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-
-            #include "UnityCG.cginc"
-
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct v2f
-            {
-                float4 pos_clip : SV_POSITION;
-                float2 uv_screen : TEXCOORD0;
-            };
-
-            sampler2D _MainTex;
-            sampler2D _CustomeDepthTex;
-            
-            half3 _FogColor;
-            half _FogDepthOffset;
-
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.pos_clip = UnityObjectToClipPos(v.vertex);
-                o.uv_screen = v.uv;
-                if(_ProjectionParams.x < 0.0)
-                {
-                    o.uv_screen.y = 1.0 - o.uv_screen.y;
-                }
-                return o;
-            }
-
-            half4 frag (v2f i) : SV_Target
-            {
-                half4 col = tex2Dlod(_MainTex, float4(i.uv_screen, 0.0, 0.0));
-                half depth = Linear01Depth(SAMPLE_DEPTH_TEXTURE_LOD(_CustomeDepthTex, float4(i.uv_screen, 0.0, 0.0)));
-                // return depth;
-                half fogFactor = saturate(1.0 - depth - _FogDepthOffset);
-
-                col.rgb *= lerp(1.0, _FogColor, 1.0 - fogFactor * fogFactor);
-                return col;
-            }
-            ENDCG
-        }
-
         // Cloud
         Pass
         {
@@ -245,6 +190,7 @@
                 }
 
                 half3 cloudCol = lightEnergy;
+
                 return half4(cloudCol, 1.0);
             }
             ENDCG
@@ -277,50 +223,7 @@
 
             sampler2D _MainTex;
             sampler2D _CloudFogTex;
-
-            v2f vert (appdata v)
-            {
-                v2f o;
-                o.pos_clip = UnityObjectToClipPos(v.vertex);
-                o.uv_screen = v.uv;
-                if(_ProjectionParams.x < 0.0) o.uv_screen.y = 1.0 - o.uv_screen.y;
-                return o;
-            }
-
-            half4 frag (v2f i) : SV_Target
-            {
-                half4 col = tex2Dlod(_MainTex, float4(i.uv_screen, 0.0, 0.0));
-                return col;
-            }
-            ENDCG
-        }
-
-        // Copy Fog
-        Pass
-        {
-            ZWrite Off
-            ZTest Always
-            // Cull Back
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-
-            #include "UnityCG.cginc"
-
-            struct appdata
-            {
-                float4 vertex : POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            struct v2f
-            {
-                float4 pos_clip : SV_POSITION;
-                float2 uv_screen : TEXCOORD0;
-            };
-
-            sampler2D _MainTex;
-            sampler2D _CloudFogTex;
+            sampler2D _CustomeDepthTex;
 
             v2f vert (appdata v)
             {

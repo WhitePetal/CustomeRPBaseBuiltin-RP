@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6071dff3432de42169eba98e574f01db, type: 3}
   m_Name: Cloud Fog Render Setting
   m_EditorClassIdentifier: 
-  cloudBoxCenter: {x: 0, y: 600, z: 0}
+  cloudBoxCenter: {x: 0, y: 534.39, z: 0}
   cloudBoxSize: {x: 3024, y: 1000, z: 3024}
   cloudFogMaterial: {fileID: 2100000, guid: fd3260187994a4909b41bad075d4fbfd, type: 2}

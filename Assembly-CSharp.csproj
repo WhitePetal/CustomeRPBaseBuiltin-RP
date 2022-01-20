@@ -64,6 +64,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
+    <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+    <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
     <Compile Include="Assets\Scripts\AABBBoxBound.cs" />
     <Compile Include="Assets\Scripts\CloudFogRenderer.cs" />
     <Compile Include="Assets\Scripts\CloudFogRenderSetting.cs" />
@@ -76,6 +83,8 @@
     <Compile Include="Assets\Scripts\InstanceOctreeSetting.cs" />
     <Compile Include="Assets\Scripts\QuadTreeMgr.cs" />
     <Compile Include="Assets\Scripts\QuadTreeNode.cs" />
+    <Compile Include="Assets\Scripts\RainRenderer.cs" />
+    <Compile Include="Assets\Scripts\RainSetting.cs" />
     <Compile Include="Assets\Scripts\RenderPiplineMainCamera.cs" />
     <Compile Include="Assets\Scripts\WeatherRenderer.cs" />
     <Compile Include="Assets\Scripts\WeatherSettings.cs" />
@@ -121,6 +130,7 @@
     <None Include="Assets\T4M\Shaders\ShaderModel3\Diffuse\T4M 5 Textures.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 2 Textures Toon.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\3TexturesUnlit.shader" />
+    <None Include="Assets\RainMaker\Prefab\RainShader.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 3 Textures Spec.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\T4M World Projection Shader Unlit+LM.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Specular\T4M 2 Textures Spec.shader" />
@@ -138,6 +148,7 @@
     <None Include="Assets\T4M\Shaders\ShaderModel2\Bump\T4M 3 TexturesBumped Mobile.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Unlit\5TexturesUnlit.shader" />
     <None Include="Assets\Shaders\Grass.shader" />
+    <None Include="Assets\RainMaker\Readme.txt" />
     <None Include="Assets\T4M\Shaders\ShaderModel1\T4M 2 Textures Auto BeastLM 2DrawCall.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel3\Bump\T4M 2 TexturesBump.shader" />
     <None Include="Assets\T4M\Shaders\ShaderModel2\Toon\T4M 4 Textures Toon.shader" />

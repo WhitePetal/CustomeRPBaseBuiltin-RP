@@ -59,9 +59,8 @@ namespace CustomeRenderPipline
         public void Render(Vector4[] cornerPlanes, Matrix4x4 cameraRays)
         {
             weatherRenderer.Render();
-            Debug.Log("WeatherRendere!!");
             //grassRenderer.Render(cornerPlanes);
-            //cloudFogRenderer.Render(cameraRays);
+            cloudFogRenderer.Render(cameraRays);
         }
 
         public void Destory()
