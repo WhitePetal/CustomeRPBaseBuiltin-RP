@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9b15907d61b449986ed6a72805c7c9, type: 3}
+  m_Name: Weather Settings
+  m_EditorClassIdentifier: 
+  skyBoxMat: {fileID: 2100000, guid: da91c6c39483842cd8c50476863990ad, type: 2}
+  hourSpeed: 1
+  hourTime: 22.590275
+  dayTime: 18.06513
+  monthTime: 1
+  rain: 0
+  sunDayColor: {r: 0.97972727, g: 1, b: 0, a: 1}
+  sunNightColor: {r: 1, g: 0.5262575, b: 0.015686274, a: 1}
+  maxLightIntensity: 1
+  minLightIntensity: 0.2
+  starIntensity: 4
+  starRandomScale: 4
+  starSpeed: 1
+  newMoonOffset: 0.2

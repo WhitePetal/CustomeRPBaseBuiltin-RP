@@ -101,7 +101,7 @@ Material:
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
-    - _MoonOffset: -0.08
+    - _MoonOffset: 0.15913224
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -115,7 +115,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 1}
-    - _CloudCutoff_Fuzziness_Speed_Size: {r: 0.675, g: 0.325, b: 1, a: 0.04}
+    - _CloudCutoff_Fuzziness_Speed_Size: {r: 0.792, g: 0.377, b: 1, a: 0.04}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DayBottomColor: {r: 0.3329477, g: 0.8113208, b: 0.6410315, a: 1}
     - _DayTopColor: {r: 0.5896226, g: 1, b: 0.9713268, a: 1}
@@ -127,8 +127,8 @@ Material:
     - _NightTopColor: {r: 0.2627451, g: 0.3748849, b: 0.4235294, a: 1}
     - _PostProcessFactors: {r: 0, g: 0.2, b: 0, a: 0}
     - _SkyTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _StarIntensity_StarSpeed: {r: 4, g: 1, b: 0, a: 0}
-    - _SunColor: {r: 0.9811321, g: 0.5674724, b: 0.34709862, a: 1}
+    - _StarIntensity_StarSpeed: {r: 4.1699524, g: 1, b: 0, a: 0}
+    - _SunColor: {r: 0.9951195, g: 0.64030695, b: 0.011909938, a: 1}
     - _SunIntensity_MoonIntensity: {r: 1, g: 1, b: 0, a: 0}
-    - _SunRadius_MoonRadius: {r: 0.15, g: 0.1, b: 0, a: 0}
+    - _SunRadius_MoonRadius: {r: 0.15, g: 0.125, b: 0, a: 0}
     - _SunRadius_MoonRadius_MoonOffset: {r: 0.15, g: 0.1, b: 0, a: 0}

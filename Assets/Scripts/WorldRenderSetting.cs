@@ -15,6 +15,7 @@ namespace CustomeRenderPipline
 
         public ComputeShader frustumCullCS;
 
+        public WeatherSettings weatherSettings;
         public GrassRendererSetting grassRenderSetting;
         public CloudFogRenderSetting cloudFogRenderSetting;
 

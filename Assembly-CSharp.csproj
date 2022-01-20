@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\QuadTreeMgr.cs" />
     <Compile Include="Assets\Scripts\QuadTreeNode.cs" />
     <Compile Include="Assets\Scripts\RenderPiplineMainCamera.cs" />
+    <Compile Include="Assets\Scripts\WeatherRenderer.cs" />
+    <Compile Include="Assets\Scripts\WeatherSettings.cs" />
     <Compile Include="Assets\Scripts\WorldRenderMgr.cs" />
     <Compile Include="Assets\Scripts\WorldRenderSetting.cs" />
     <Compile Include="Assets\T4M\Scripts\T4MBillBObjSC.cs" />

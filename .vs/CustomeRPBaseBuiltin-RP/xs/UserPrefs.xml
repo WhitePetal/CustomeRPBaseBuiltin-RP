@@ -1,19 +1,13 @@
 ﻿<Properties StartupConfiguration="{2C71090A-82B8-EF48-1E94-06C09ABC60AA}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/QuadTreeNode.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WeatherSettings.cs">
     <Files>
-      <File FileName="Assets/Scripts/WorldRenderMgr.cs" Line="58" Column="33" />
-      <File FileName="Assets/Scripts/CloudFogRenderer.cs" Line="36" Column="95" />
+      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" Line="62" Column="16" />
+      <File FileName="Assets/Scripts/WorldRenderMgr.cs" />
+      <File FileName="Assets/Scripts/WeatherSettings.cs" Line="10" Column="35" />
+      <File FileName="Assets/Scripts/WeatherRenderer.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CloudFogRenderSetting.cs" />
-      <File FileName="Assets/Scripts/QuadTreeNode.cs" Line="17" Column="53" />
-      <File FileName="Assets/Scripts/GrassRenderer.cs" />
-      <File FileName="Assets/Scripts/RenderPiplineMainCamera.cs" />
       <File FileName="Assets/Scripts/WorldRenderSetting.cs" />
-      <File FileName="Assets/Scripts/GrassRendererSetting.cs" />
-      <File FileName="Assets/Scripts/QuadTreeMgr.cs" Line="9" Column="21" />
-      <File FileName="Assets/Scripts/CullTools.cs" />
-      <File FileName="Assets/Scripts/InstanceOctreeMgr.cs" />
-      <File FileName="Assets/Editor/NoiseGenerator/NoiseGeneratorEditor.cs" />
-      <File FileName="../amongus3d_cn/Assets/Scripts/Game/Managers/NetworkManager.cs" />
+      <File FileName="Assets/Scripts/CloudFogRenderer.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -21,7 +15,7 @@
           <Node name="CustomeRPBaseBuiltin-RP" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="QuadTreeNode.cs" selected="True" />
+                <Node name="WeatherSettings.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -31,7 +25,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c29bed52-1c7a-4965-8524-69d8b15f2d0b" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="8258cdc0-f46d-4fd3-abef-7f0849092a28" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -24,6 +24,7 @@ namespace CustomeRenderPipline
         public WorldRenderSetting setting;
 
         private QuadTreeMgr quadTree;
+        private WeatherRenderer weatherRenderer;
         private GrassRenderer grassRenderer;
         private CloudFogRenderer cloudFogRenderer;
 
@@ -45,6 +46,9 @@ namespace CustomeRenderPipline
             quadTree = new QuadTreeMgr();
             quadTree.Setup(this);
 
+            weatherRenderer = new WeatherRenderer();
+            weatherRenderer.Setup(rp, setting.weatherSettings);
+
             grassRenderer = new GrassRenderer();
             grassRenderer.SetUp(cam, setting.grassRenderSetting, setting.frustumCullCS);
 
@@ -54,8 +58,10 @@ namespace CustomeRenderPipline
 
         public void Render(Vector4[] cornerPlanes, Matrix4x4 cameraRays)
         {
-            grassRenderer.Render(cornerPlanes);
-            cloudFogRenderer.Render(cameraRays);
+            weatherRenderer.Render();
+            Debug.Log("WeatherRendere!!");
+            //grassRenderer.Render(cornerPlanes);
+            //cloudFogRenderer.Render(cameraRays);
         }
 
         public void Destory()

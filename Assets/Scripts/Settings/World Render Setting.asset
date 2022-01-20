@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e90acb39292489e95d082c2fc60177, type: 3}
   m_Name: World Render Setting
   m_EditorClassIdentifier: 
+  drawGizmos: 0
   worldSize: 1024
   gridSize: 128
+  worldHeight: 512
   frustumCullCS: {fileID: 7200000, guid: 4174682575ec54ff29be669ac1c8da40, type: 3}
+  weatherSettings: {fileID: 11400000, guid: b8b27f778d29046b8836647424789fdc, type: 2}
   grassRenderSetting: {fileID: 11400000, guid: c0ed4f95c8dea414fa66c5c77c4c0bf1, type: 2}
   cloudFogRenderSetting: {fileID: 11400000, guid: 5e54a92c0ef4742d58c61a87cf4a854f,
     type: 2}
